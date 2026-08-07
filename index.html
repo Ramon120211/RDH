@@ -444,20 +444,29 @@ p { color: var(--gray); margin: 0 0 16px; }
 .guide-cover {
   aspect-ratio: 3 / 4;
   max-width: 260px;
-  background: linear-gradient(160deg, var(--red), var(--red-dark));
+  background: linear-gradient(160deg, var(--black-soft), var(--black) 75%);
+  border: 1px solid rgba(214,40,40,0.4);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
   margin: 0 auto 24px;
-  box-shadow: 0 20px 40px rgba(214,40,40,0.25);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 .guide-cover__eyebrow {
-  color: rgba(255,255,255,0.8);
+  color: var(--red);
   font-weight: 700;
   letter-spacing: 2px;
   font-size: 0.8rem;
+}
+.guide-cover__title--red { color: var(--red); }
+.guide-cover__stat {
+  align-self: flex-end;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
 }
 .guide-cover__title {
   font-family: var(--font-display);
@@ -684,22 +693,32 @@ p { color: var(--gray); margin: 0 0 16px; }
   align-items: center;
   gap: 24px;
 }
-.footer__social { display: flex; gap: 16px; align-items: center; }
+.footer__social { display: flex; gap: 20px; align-items: center; }
 .footer__social a {
-  color: var(--gray);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
-.footer__social a:hover { color: var(--red); border-color: var(--red); }
-.footer__social svg { width: 18px; height: 18px; }
+.footer__social a:hover { color: var(--red); transform: translateY(-2px); }
+.footer__social svg { width: 26px; height: 26px; }
 .footer__legal { text-align: right; font-size: 0.85rem; color: var(--gray); }
 .footer__legal p { margin: 4px 0; color: var(--gray); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -898,7 +917,7 @@ p { color: var(--gray); margin: 0 0 16px; }
           <span class="stat__label">De Experiencia Entrenando Y Aplicando El Método</span>
         </div>
       </div>
-      <p class="note">Espacio para añadir más testimonios y fotos antes/después conforme cierres clientes.</p>
+      <!-- <p class="note">Espacio para añadir más testimonios y fotos antes/después conforme cierres clientes.</p> -->
     </div>
   </section>
 
@@ -937,19 +956,23 @@ p { color: var(--gray); margin: 0 0 16px; }
     <div class="container lead-magnet__grid">
       <div class="lead-magnet__copy">
         <p class="eyebrow">GUÍA GRATIS</p>
-        <h2>La Guía De Hierro: Cómo Ganar Músculo De Verdad</h2>
-        <p class="lead">Todo lo que me habría ahorrado 2 años de entrenar sin resultados. Gratis.</p>
+        <h2>Enciclopedia Hipertrófica De Hierro</h2>
+        <p class="lead">Cómo construir músculo de verdad sin perder años por el camino.</p>
+        <p>Todo lo que me habría ahorrado dos años entrenando sin resultados: los dos motores reales de la hipertrofia, el enfoque de intensidad que me desatascó cuando el volumen dejó de funcionar, cómo comer para crecer y una rutina completa de 4 días lista para empezar mañana.</p>
         <ul class="check-list">
-          <li>Las 3 variables que controlan la hipertrofia (y las 10 que te distraen)</li>
-          <li>Cómo calcular tus calorías y proteína en 5 minutos, sin apps de pago</li>
-          <li>Mi esquema de progresión semanal para no estancarte nunca</li>
-          <li>El error nº1 de los flacos que quieren ganar masa</li>
+          <li>Los 2 motores reales de la hipertrofia (y las 10 cosas que te distraen)</li>
+          <li>Mi enfoque de intensidad: por qué 1-2 series al fallo baten a 5 series a medias</li>
+          <li>La rutina completa de 4 días torso/pierna, con series, RIR y descansos</li>
+          <li>Cómo calcular tus calorías y macros en 5 minutos, sin apps de pago</li>
+          <li>El método de doble progresión para que los números suban cada semana</li>
+          <li>Superseries para brazos: mi arma secreta dentro de un split de 4 días</li>
         </ul>
       </div>
       <div class="lead-magnet__visual">
         <div class="guide-cover">
           <span class="guide-cover__eyebrow">GRATIS</span>
-          <span class="guide-cover__title">LA GUÍA<br>DE HIERRO</span>
+          <span class="guide-cover__title">Enciclopedia Hipertrófica <span class="guide-cover__title--red">De Hierro</span></span>
+          <span class="guide-cover__stat">52→82 KG · NATURAL</span>
         </div>
         <form class="lead-form" id="leadForm">
           <div class="form-field">
@@ -968,9 +991,9 @@ p { color: var(--gray); margin: 0 0 16px; }
             </div>
             <p class="field-error" id="leadWhatsappError"></p>
           </div>
-          <button type="submit" class="btn btn--primary btn--full">Enviarme La Guía</button>
-          <p class="micro-copy micro-copy--dark">Sin spam. Solo entrenamiento, nutrición y cosas que funcionan. Puedes darte de baja cuando quieras.</p>
-          <p class="form-success" id="leadSuccess">¡Guía enviada! Revisa tu WhatsApp en los próximos minutos.</p>
+          <button type="submit" class="btn btn--primary btn--full">Descargar La Enciclopedia</button>
+          <p class="micro-copy micro-copy--dark">Gratis. Sin spam. Solo entrenamiento, nutrición y cosas que funcionan. Puedes darte de baja cuando quieras.</p>
+          <p class="form-success" id="leadSuccess">¡Enciclopedia enviada! Revisa tu WhatsApp en los próximos minutos.</p>
         </form>
       </div>
     </div>
@@ -1062,17 +1085,18 @@ p { color: var(--gray); margin: 0 0 16px; }
       <h2>Solicita Tu Cupo De Coaching</h2>
       <p class="lead">Coaching 1:1 para hombres · Tu solicitud está lista en 2 minutos</p>
 
-      <form class="application-form" id="applicationForm">
+      <form class="application-form" id="applicationForm" action="https://formspree.io/f/xreyevvp" method="POST">
+        <input type="hidden" name="_subject" value="Nueva solicitud de coaching — RDH">
         <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
         <p class="step-counter" id="stepCounter">Paso 1 De 10</p>
 
         <div class="form-step is-active" data-step="1">
           <label for="q1">¿Cómo Te Llamas?</label>
-          <input type="text" id="q1" placeholder="Tu nombre completo" required>
+          <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" required>
         </div>
         <div class="form-step" data-step="2">
           <label for="q2">¿Cuál Es Tu Email?</label>
-          <input type="email" id="q2" placeholder="tu@email.com" required>
+          <input type="email" id="q2" name="email" placeholder="tu@email.com" required>
         </div>
         <div class="form-step" data-step="3">
           <label for="q3">¿Cuál Es Tu WhatsApp?</label>
@@ -1082,21 +1106,21 @@ p { color: var(--gray); margin: 0 0 16px; }
               <svg class="phone-country__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <select class="phone-country__select" id="q3Country" aria-label="Código de país"></select>
             </div>
-            <input type="tel" id="q3" inputmode="numeric" autocomplete="tel-national" required>
+            <input type="tel" id="q3" name="whatsapp" inputmode="numeric" autocomplete="tel-national" required>
           </div>
           <p class="field-error" id="q3Error"></p>
         </div>
         <div class="form-step" data-step="4">
           <label>Edad, Altura Y Peso Actual</label>
           <div class="form-row">
-            <input type="number" placeholder="Edad" required>
-            <input type="text" placeholder="Altura (cm)" required>
-            <input type="text" placeholder="Peso (kg)" required>
+            <input type="number" name="edad" placeholder="Edad" required>
+            <input type="text" name="altura_cm" placeholder="Altura (cm)" required>
+            <input type="text" name="peso_kg" placeholder="Peso (kg)" required>
           </div>
         </div>
         <div class="form-step" data-step="5">
           <label for="q5">¿Cuál Es Tu Objetivo Principal?</label>
-          <select id="q5" required>
+          <select id="q5" name="objetivo_principal" required>
             <option value="" disabled selected>Selecciona Una Opción</option>
             <option>Ganar Músculo</option>
             <option>Perder Grasa</option>
@@ -1106,23 +1130,23 @@ p { color: var(--gray); margin: 0 0 16px; }
         </div>
         <div class="form-step" data-step="6">
           <label for="q6">¿Cuánto Tiempo Llevas Entrenando?</label>
-          <input type="text" id="q6" required>
+          <input type="text" id="q6" name="tiempo_entrenando" required>
         </div>
         <div class="form-step" data-step="7">
           <label for="q7">¿Cuántos Días A La Semana Puedes Entrenar De Verdad?</label>
-          <input type="number" id="q7" min="1" max="7" required>
+          <input type="number" id="q7" name="dias_por_semana" min="1" max="7" required>
         </div>
         <div class="form-step" data-step="8">
           <label for="q8">¿Tienes Alguna Lesión O Limitación?</label>
-          <textarea id="q8" rows="3"></textarea>
+          <textarea id="q8" name="lesiones" rows="3"></textarea>
         </div>
         <div class="form-step" data-step="9">
           <label for="q9">¿Qué Has Intentado Antes Y Por Qué Crees Que No Funcionó?</label>
-          <textarea id="q9" rows="3" required></textarea>
+          <textarea id="q9" name="intentos_previos" rows="3" required></textarea>
         </div>
         <div class="form-step" data-step="10">
           <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3 Meses?</label>
-          <input type="range" id="q10" min="1" max="10" value="7">
+          <input type="range" id="q10" name="nivel_compromiso" min="1" max="10" value="7">
           <output id="q10Output">7</output>
         </div>
 
@@ -1131,6 +1155,7 @@ p { color: var(--gray); margin: 0 0 16px; }
           <button type="button" class="btn btn--primary" id="nextStep">Siguiente</button>
           <button type="submit" class="btn btn--primary" id="submitStep">Enviar Solicitud</button>
         </div>
+        <p class="field-error" id="formSubmitError">Hubo un problema al enviar tu solicitud. Inténtalo de nuevo o escríbeme directamente.</p>
       </form>
 
       <div class="form-confirmation" id="formConfirmation">
@@ -1419,7 +1444,7 @@ function setupPhoneField(selectEl, inputEl, errorEl, displayEl) {
   const wrapperEl = selectEl.closest('.phone-country');
 
   selectEl.innerHTML = COUNTRY_CODES.map(c =>
-    `<option value="${c.dial}" data-digits="${c.digits}" data-name="${c.name}" data-iso="${c.iso}"${c.iso === 'ES' ? ' selected' : ''}>${isoToFlag(c.iso)} ${c.name} (+${c.dial})</option>`
+    `<option value="${c.dial}" data-digits="${c.digits}" data-name="${c.name}" data-iso="${c.iso}"${c.iso === 'PA' ? ' selected' : ''}>${isoToFlag(c.iso)} ${c.name} (+${c.dial})</option>`
   ).join('');
 
   function applyCountry() {
@@ -1560,14 +1585,89 @@ prevBtn.addEventListener('click', () => {
   }
 });
 
+const CALENDLY_URL = 'https://calendly.com/ramondehierro/coaching-1-1-con-ramon';
+
 appForm.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!currentStepIsValid()) return;
-  appForm.classList.add('is-hidden');
-  document.getElementById('formConfirmation').classList.add('is-visible');
+
+  const submitBtn = document.getElementById('submitStep');
+  const errorEl = document.getElementById('formSubmitError');
+  errorEl.classList.remove('is-visible');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  const formData = new FormData(appForm);
+  const countryDial = document.getElementById('q3Country').value;
+  const whatsappDigits = document.getElementById('q3').value;
+  formData.set('whatsapp', `+${countryDial} ${whatsappDigits}`);
+
+  fetch(appForm.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' },
+  })
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = CALENDLY_URL;
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(() => {
+      errorEl.classList.add('is-visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar Solicitud';
+    });
 });
 
 renderStep();
+
+// Scroll reveal animations
+(function () {
+  const revealSelectors = [
+    '.hero__visual',
+    '.plan-card', '.plan-section__photo',
+    '.about__copy > p', '.about__copy > .chips', '.about__visual',
+    '.testimonial',
+    '.pillars-grid > .pillar',
+    '.lead-magnet__copy > *', '.lead-magnet__visual',
+    '.fit-column',
+    '.steps-grid > .step',
+    '.accordion__item',
+    '.application-form', '.form-confirmation',
+    '.cta-final .container > *',
+  ];
+  const elements = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+  elements.forEach(el => el.classList.add('reveal'));
+
+  const staggerGroups = document.querySelectorAll(
+    '.stats-grid, .pillars-grid, .chips, .steps-grid, .accordion, .fit-grid, .check-list, .transformation-photos'
+  );
+  staggerGroups.forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+      child.classList.add('reveal');
+      child.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
+      elements.push(child);
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  elements.forEach(el => observer.observe(el));
+})();
 </script>
 </body>
 </html>

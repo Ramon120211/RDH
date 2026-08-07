@@ -27,7 +27,7 @@
 - Coaching
 - Sobre mí
 - Guía gratis
-- **Solicitar plaza** *(botón rojo)*
+- **Aplica Para Coaching** *(botón rojo)*
 
 ---
 
@@ -44,11 +44,11 @@ Coaching online 1:1 basado en evidencia para hombres: entrenamiento, nutrición 
 
 **Botones:**
 
-- **Solicitar plaza** *(rojo, primario)*
+- **Aplica Para Coaching** *(rojo, primario)*
 - **Descargar guía gratis** *(borde blanco, secundario)*
 
 **Micro-copy bajo botones:**
-Plazas limitadas · La solicitud te lleva 2 minutos
+Cupos limitados · La solicitud te lleva 2 minutos
 
 ---
 
@@ -105,7 +105,7 @@ WhatsApp directo. Dudas, correcciones de técnica por vídeo, ajustes sobre la m
 **5. Seguimiento de hábitos**
 Sueño, pasos, hidratación, consistencia. Los resultados que duran se construyen con hábitos, no con motivación.
 
-**CTA:** **Solicitar plaza**
+**CTA:** **Aplica Para Coaching**
 
 ---
 
@@ -176,7 +176,7 @@ Es donde crece el músculo. Sueño de calidad y gestión de la fatiga: no puedes
 **4. Consistencia**
 El plan perfecto que no cumples vale cero. Diseñamos algo que puedas sostener en tu semana real, con trabajo, familia y planes incluidos.
 
-**CTA:** **Solicitar plaza**
+**CTA:** **Aplica Para Coaching**
 
 ---
 
@@ -188,25 +188,34 @@ El plan perfecto que no cumples vale cero. Diseñamos algo que puedas sostener e
 
 GUÍA GRATIS
 
-## La Guía de Hierro: cómo ganar músculo de verdad
+## Enciclopedia Hipertrófica de Hierro
 
-Todo lo que me habría ahorrado 2 años de entrenar sin resultados. Gratis.
+**Subtítulo:**
+Cómo construir músculo de verdad sin perder años por el camino.
+
+**Párrafo:**
+Todo lo que me habría ahorrado dos años entrenando sin resultados: los dos motores reales de la hipertrofia, el enfoque de intensidad que me desatascó cuando el volumen dejó de funcionar, cómo comer para crecer y una rutina completa de 4 días lista para empezar mañana.
 
 **Bullets (check rojo):**
 
-- Las 3 variables que controlan la hipertrofia (y las 10 que te distraen)
-- Cómo calcular tus calorías y proteína en 5 minutos, sin apps de pago
-- Mi esquema de progresión semanal para no estancarte nunca
-- El error nº1 de los flacos que quieren ganar masa
+- Los 2 motores reales de la hipertrofia (y las 10 cosas que te distraen)
+- Mi enfoque de intensidad: por qué 1-2 series al fallo baten a 5 series a medias
+- La rutina completa de 4 días torso/pierna, con series, RIR y descansos
+- Cómo calcular tus calorías y macros en 5 minutos, sin apps de pago
+- El método de doble progresión para que los números suban cada semana
+- Superseries para brazos: mi arma secreta dentro de un split de 4 días
 
 **Formulario:**
 
 - Nombre
 - Email
-- **Botón:** **Enviarme la guía** *(rojo)*
+- **Botón:** **Descargar la enciclopedia** *(rojo)*
 
 **Micro-copy:**
-Sin spam. Solo entrenamiento, nutrición y cosas que funcionan. Puedes darte de baja cuando quieras.
+Gratis. Sin spam. Solo entrenamiento, nutrición y cosas que funcionan. Puedes darte de baja cuando quieras.
+
+**Detalle de portada (imagen del PDF):**
+Fondo negro, título en Anton con "DE HIERRO" en rojo, y el dato "52→82 KG · NATURAL" abajo a la derecha.
 
 ---
 
@@ -233,7 +242,7 @@ Sin spam. Solo entrenamiento, nutrición y cosas que funcionan. Puedes darte de 
 
 ## Cómo empezamos
 
-**Paso 01 — Solicitas tu plaza**
+**Paso 01 — Aplicas para coaching**
 Rellenas un formulario de 2 minutos: objetivos, historial, disponibilidad y situación actual.
 
 **Paso 02 — Hablamos**
@@ -269,7 +278,7 @@ Depende del nivel de acompañamiento. Lo hablamos en la llamada, después de ent
 
 APLICAR
 
-## Solicita tu plaza de coaching
+## Aplica para coaching
 
 Coaching 1:1 para hombres · La solicitud te lleva 2 minutos
 
@@ -305,7 +314,7 @@ DA EL PRIMER PASO
 
 Puedes seguir improvisando otro año más, o puedes tener un plan.
 
-**Botón:** **Solicitar plaza** *(negro sobre rojo)*
+**Botón:** **Aplica Para Coaching** *(negro sobre rojo)*
 
 ---
 
@@ -331,5 +340,5 @@ Privacidad · Términos · Contacto
 - **Negro `#0A0A0A`** como fondo dominante. Texto blanco `#FFFFFF`, texto secundario gris claro `#B3B3B3`.
 - Tipografía: sans-serif condensada y con carácter para titulares (ej. Anton, Bebas Neue, Archivo Black); sans-serif limpia para cuerpo (ej. Inter).
 - Titulares en mayúsculas o sentence case, pero consistente en toda la página.
-- CTA "Solicitar plaza" repetido 5 veces a lo largo del scroll.
+- CTA "Aplica Para Coaching" repetido 5 veces a lo largo del scroll.
 - Fotos: alto contraste, blanco y negro con acento rojo puntual si no tienes fotos profesionales.
