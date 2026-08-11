@@ -1167,6 +1167,10 @@ p { color: var(--gray); margin: 0 0 16px; }
             <input type="text" id="leadName" name="name" placeholder="Tu nombre completo" required>
           </div>
           <div class="form-field">
+            <label for="leadEmail">Email</label>
+            <input type="email" id="leadEmail" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-field">
             <label for="leadWhatsapp">WhatsApp</label>
             <div class="phone-input-group">
               <div class="phone-country">
@@ -1276,7 +1280,7 @@ p { color: var(--gray); margin: 0 0 16px; }
       <form class="application-form" id="applicationForm" action="https://formspree.io/f/xreyevvp" method="POST">
         <input type="hidden" name="_subject" value="Nueva solicitud de coaching — RDH">
         <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
-        <p class="step-counter" id="stepCounter">Paso 1 De 10</p>
+        <p class="step-counter" id="stepCounter">Paso 1 De 11</p>
 
         <div class="form-step is-active" data-step="1">
           <label for="q1">¿Cómo Te Llamas?</label>
@@ -1336,6 +1340,15 @@ p { color: var(--gray); margin: 0 0 16px; }
           <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3 Meses?</label>
           <input type="range" id="q10" name="nivel_compromiso" min="1" max="10" value="7">
           <output id="q10Output">7</output>
+        </div>
+        <div class="form-step" data-step="11">
+          <label for="q11">¿Tienes Un Monto Que Puedas Invertir En Esto Ahorita?</label>
+          <select id="q11" name="presupuesto" required>
+            <option value="" disabled selected>Selecciona Una Opción</option>
+            <option>Sí, Tengo El Presupuesto Listo</option>
+            <option>Podría Destinar Una Parte</option>
+            <option>Por Ahora No, Pero Quiero Información</option>
+          </select>
         </div>
 
         <div class="form-nav">
