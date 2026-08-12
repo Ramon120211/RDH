@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programa de Piernas — Ramon De Hierro</title>
+<meta name="description" content="Las 2 sesiones con las que construí piernas que sostienen todo lo demás. Descarga gratuita.">
+<meta property="og:title" content="Programa de Piernas de Hierro">
+<meta property="og:description" content="Las 2 sesiones con las que construí piernas que sostienen todo lo demás.">
+<meta name="theme-color" content="#111110">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rojo:#D62828; --rojo-hover:#8E1116;
+  --negro:#111110; --papel:#F4F1EA; --gris:#8B8880; --linea:#2C2B28;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{
+  background:var(--negro);color:var(--papel);
+  font-family:'Inter',sans-serif;
+  min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:36px 22px calc(36px + env(safe-area-inset-bottom));
+  text-align:center;
+}
+.wrap{max-width:430px;width:100%}
+
+.marca{
+  font-family:'Inter',sans-serif;font-weight:500;font-size:.62rem;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--rojo);
+}
+.rule{height:3px;background:var(--rojo);width:56px;margin:14px auto 26px}
+
+h1{
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2.5rem,12vw,3.6rem);
+  line-height:.9;text-transform:uppercase;letter-spacing:-.01em;
+}
+h1 .r{color:var(--rojo)}
+.sub{font-size:1rem;line-height:1.5;color:#B5B1A8;margin-top:18px}
+
+.datos{
+  display:flex;justify-content:center;gap:0;
+  border-top:2px solid var(--linea);border-bottom:2px solid var(--linea);
+  margin:28px 0;padding:16px 0;
+}
+.dato{flex:1;padding:0 6px}
+.dato b{
+  display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.7rem;
+  line-height:1;color:var(--rojo);
+}
+.dato span{
+  display:block;font-family:'Inter',sans-serif;font-size:.55rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-top:6px;
+}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:11px;
+  width:100%;padding:21px 24px;
+  background:var(--rojo);color:#fff;text-decoration:none;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:1.02rem;
+  letter-spacing:.11em;text-transform:uppercase;
+  border:2px solid var(--rojo);cursor:pointer;
+}
+.btn:active{transform:scale(.985);background:var(--rojo-hover);border-color:var(--rojo-hover)}
+.btn:disabled{opacity:.6}
+.btn svg{width:21px;height:21px;flex:0 0 21px}
+.micro{
+  font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gris);margin-top:15px;
+}
+
+.form-field{margin-bottom:12px;text-align:left}
+.form-field label{
+  display:block;font-family:'Inter',sans-serif;font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-bottom:6px;
+}
+.form-field input{
+  width:100%;padding:14px 16px;background:transparent;
+  border:2px solid var(--linea);color:var(--papel);
+  font-family:'Inter',sans-serif;font-size:1rem;
+}
+.form-field input:focus{outline:none;border-color:var(--rojo)}
+.form-field input::placeholder{color:#5A5854}
+
+.phone-input-group{display:flex;gap:8px}
+.phone-input-group input{flex:1;min-width:0}
+.phone-country{
+  position:relative;flex:0 0 auto;display:flex;align-items:center;gap:6px;
+  min-width:68px;padding:0 20px 0 12px;border:2px solid var(--linea);
+  color:var(--papel);cursor:pointer;
+}
+.phone-country__display{font-size:.92rem;white-space:nowrap;pointer-events:none}
+.phone-country__chevron{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:9px;height:6px;opacity:.6;pointer-events:none}
+.phone-country__select{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:none;margin:0;padding:0;cursor:pointer}
+.phone-input-group input.has-error,
+.phone-country.has-error{border-color:var(--rojo)}
+.form-msg{
+  display:none;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.1em;
+  line-height:1.5;text-transform:none;margin-top:14px;
+}
+.form-msg.is-visible{display:block}
+.form-msg--error{color:var(--rojo)}
+.form-msg--success{color:#B5B1A8}
+
+.contenido{text-align:left;margin-top:34px;padding-top:24px;border-top:1px solid var(--linea)}
+.contenido h2{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:.68rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:14px;
+}
+.contenido li{
+  list-style:none;position:relative;padding-left:24px;
+  font-size:.88rem;line-height:1.5;color:#B5B1A8;margin-bottom:10px;
+}
+.contenido li::before{
+  content:"";position:absolute;left:0;top:6px;
+  width:10px;height:10px;border:2px solid var(--rojo);
+}
+
+.cta{
+  margin-top:32px;padding-top:22px;border-top:1px solid var(--linea);
+  font-size:.85rem;line-height:1.6;color:var(--gris);
+}
+.cta a{color:var(--rojo);text-decoration:none;font-weight:600;border-bottom:1px solid var(--rojo)}
+
+.firma{
+  font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;
+  text-transform:uppercase;color:#4A4844;margin-top:28px;
+}
+.firma a{color:#4A4844;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="marca">Ramon De Hierro</div>
+  <div class="rule"></div>
+
+  <h1>Programa<br>de <span class="r">Piernas</span></h1>
+
+  <p class="sub">Las 2 sesiones con las que construí piernas que sostienen todo lo demás.</p>
+
+  <div class="datos">
+    <div class="dato"><b>2</b><span>Sesiones</span></div>
+    <div class="dato"><b>11</b><span>Ejercicios</span></div>
+    <div class="dato"><b>0</b><span>Excusas</span></div>
+  </div>
+
+  <!-- El PDF debe llamarse programa-piernas.pdf y vivir en esta misma carpeta -->
+  <form id="piernaForm" action="https://formspree.io/f/mdenzgwk" method="POST">
+    <input type="hidden" name="_subject" value="Nueva descarga de Programa Piernas — RDH">
+    <div class="form-field">
+      <label for="piernaName">Nombre</label>
+      <input type="text" id="piernaName" name="name" placeholder="Tu nombre completo" required>
+    </div>
+    <div class="form-field">
+      <label for="piernaEmail">Email</label>
+      <input type="email" id="piernaEmail" name="email" placeholder="tu@email.com" required>
+    </div>
+    <div class="form-field">
+      <label for="piernaPhone">Teléfono</label>
+      <div class="phone-input-group">
+        <div class="phone-country">
+          <span class="phone-country__display" id="piernaPhoneDisplay" aria-hidden="true"></span>
+          <svg class="phone-country__chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <select class="phone-country__select" id="piernaPhoneCountry" aria-label="Código de país"></select>
+        </div>
+        <input type="tel" id="piernaPhone" name="phone" inputmode="numeric" autocomplete="tel-national" required>
+      </div>
+      <p class="form-msg form-msg--error" id="piernaPhoneError"></p>
+    </div>
+    <button type="submit" class="btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Descargar programa
+    </button>
+    <p class="form-msg form-msg--error" id="piernaError">Hubo un problema al enviar tus datos. Inténtalo de nuevo.</p>
+    <p class="form-msg form-msg--success" id="piernaSuccess">¡Listo! Tu descarga debería empezar automáticamente. Si no, <a href="programa-piernas.pdf" download="Programa-de-Piernas-Ramon-De-Hierro.pdf">haz clic aquí</a>.</p>
+  </form>
+  <a id="piernaDownloadLink" href="programa-piernas.pdf" download="Programa-de-Piernas-Ramon-De-Hierro.pdf" style="display:none" aria-hidden="true"></a>
+
+  <div class="micro">PDF · Gratis · Deja tus datos</div>
+
+  <div class="contenido">
+    <h2>Lo que hay dentro</h2>
+    <ul>
+      <li>Día A y Día B completos, con series, repeticiones y descansos</li>
+      <li>Los 3 esquemas: compuestos con series de descarga, unilaterales y gemelos</li>
+      <li>Dónde puedes llevar una serie al fallo y dónde no debes hacerlo nunca</li>
+      <li>El método de doble progresión para que la sentadilla suba cada semana</li>
+      <li>Las 7 reglas y los 5 errores que van a tentarte</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    ¿Quieres que te arme un plan completo a tu medida?<br>
+    <a href="https://ramondehierro.com/#solicitar">Aplica para coaching 1:1</a>
+  </div>
+
+  <div class="firma"><a href="https://instagram.com/ramondehierro">@ramondehierro</a></div>
+
+</div>
+<script>
+function isoToFlag(iso) {
+  return iso.replace(/./g, ch => String.fromCodePoint(127397 + ch.charCodeAt(0)));
+}
+
+const COUNTRY_CODES = [
+  { iso: 'ES', name: 'España', dial: '34', digits: 9 },
+  { iso: 'MX', name: 'México', dial: '52', digits: 10 },
+  { iso: 'AR', name: 'Argentina', dial: '54', digits: 10 },
+  { iso: 'CO', name: 'Colombia', dial: '57', digits: 10 },
+  { iso: 'CL', name: 'Chile', dial: '56', digits: 9 },
+  { iso: 'PE', name: 'Perú', dial: '51', digits: 9 },
+  { iso: 'VE', name: 'Venezuela', dial: '58', digits: 10 },
+  { iso: 'EC', name: 'Ecuador', dial: '593', digits: 9 },
+  { iso: 'UY', name: 'Uruguay', dial: '598', digits: 8 },
+  { iso: 'PY', name: 'Paraguay', dial: '595', digits: 9 },
+  { iso: 'BO', name: 'Bolivia', dial: '591', digits: 8 },
+  { iso: 'US', name: 'Estados Unidos', dial: '1', digits: 10 },
+  { iso: 'CA', name: 'Canadá', dial: '1', digits: 10 },
+  { iso: 'GB', name: 'Reino Unido', dial: '44', digits: 10 },
+  { iso: 'PT', name: 'Portugal', dial: '351', digits: 9 },
+  { iso: 'IT', name: 'Italia', dial: '39', digits: 10 },
+  { iso: 'PA', name: 'Panamá', dial: '507', digits: 8 },
+  { iso: 'CR', name: 'Costa Rica', dial: '506', digits: 8 },
+  { iso: 'GT', name: 'Guatemala', dial: '502', digits: 8 },
+  { iso: 'HN', name: 'Honduras', dial: '504', digits: 8 },
+  { iso: 'SV', name: 'El Salvador', dial: '503', digits: 8 },
+  { iso: 'NI', name: 'Nicaragua', dial: '505', digits: 8 },
+  { iso: 'CU', name: 'Cuba', dial: '53', digits: 8 },
+  { iso: 'DO', name: 'República Dominicana', dial: '1', digits: 10 },
+  { iso: 'PR', name: 'Puerto Rico', dial: '1', digits: 10 },
+  { iso: 'JM', name: 'Jamaica', dial: '1', digits: 10 },
+  { iso: 'HT', name: 'Haití', dial: '509', digits: 8 },
+  { iso: 'BS', name: 'Bahamas', dial: '1', digits: 10 },
+  { iso: 'BB', name: 'Barbados', dial: '1', digits: 10 },
+  { iso: 'BZ', name: 'Belice', dial: '501', digits: 7 },
+  { iso: 'DM', name: 'Dominica', dial: '1', digits: 10 },
+  { iso: 'GD', name: 'Granada', dial: '1', digits: 10 },
+  { iso: 'KN', name: 'San Cristóbal y Nieves', dial: '1', digits: 10 },
+  { iso: 'LC', name: 'Santa Lucía', dial: '1', digits: 10 },
+  { iso: 'VC', name: 'San Vicente y las Granadinas', dial: '1', digits: 10 },
+  { iso: 'TT', name: 'Trinidad y Tobago', dial: '1', digits: 10 },
+  { iso: 'BR', name: 'Brasil', dial: '55', digits: 11 },
+  { iso: 'GY', name: 'Guyana', dial: '592', digits: 7 },
+  { iso: 'SR', name: 'Surinam', dial: '597', digits: 7 },
+  { iso: 'AD', name: 'Andorra', dial: '376', digits: 6 },
+  { iso: 'AL', name: 'Albania', dial: '355', digits: 9 },
+  { iso: 'AT', name: 'Austria', dial: '43', digits: 10 },
+  { iso: 'BA', name: 'Bosnia y Herzegovina', dial: '387', digits: 8 },
+  { iso: 'BE', name: 'Bélgica', dial: '32', digits: 9 },
+  { iso: 'BG', name: 'Bulgaria', dial: '359', digits: 9 },
+  { iso: 'BY', name: 'Bielorrusia', dial: '375', digits: 9 },
+  { iso: 'CH', name: 'Suiza', dial: '41', digits: 9 },
+  { iso: 'CY', name: 'Chipre', dial: '357', digits: 8 },
+  { iso: 'CZ', name: 'Chequia', dial: '420', digits: 9 },
+  { iso: 'DE', name: 'Alemania', dial: '49', digits: 10 },
+  { iso: 'DK', name: 'Dinamarca', dial: '45', digits: 8 },
+  { iso: 'EE', name: 'Estonia', dial: '372', digits: 8 },
+  { iso: 'FI', name: 'Finlandia', dial: '358', digits: 9 },
+  { iso: 'FR', name: 'Francia', dial: '33', digits: 9 },
+  { iso: 'GR', name: 'Grecia', dial: '30', digits: 10 },
+  { iso: 'HR', name: 'Croacia', dial: '385', digits: 9 },
+  { iso: 'HU', name: 'Hungría', dial: '36', digits: 9 },
+  { iso: 'IE', name: 'Irlanda', dial: '353', digits: 9 },
+  { iso: 'IS', name: 'Islandia', dial: '354', digits: 7 },
+  { iso: 'LI', name: 'Liechtenstein', dial: '423', digits: 7 },
+  { iso: 'LT', name: 'Lituania', dial: '370', digits: 8 },
+  { iso: 'LU', name: 'Luxemburgo', dial: '352', digits: 9 },
+  { iso: 'LV', name: 'Letonia', dial: '371', digits: 8 },
+  { iso: 'MC', name: 'Mónaco', dial: '377', digits: 8 },
+  { iso: 'MD', name: 'Moldavia', dial: '373', digits: 8 },
+  { iso: 'ME', name: 'Montenegro', dial: '382', digits: 8 },
+  { iso: 'MK', name: 'Macedonia del Norte', dial: '389', digits: 8 },
+  { iso: 'MT', name: 'Malta', dial: '356', digits: 8 },
+  { iso: 'NL', name: 'Países Bajos', dial: '31', digits: 9 },
+  { iso: 'NO', name: 'Noruega', dial: '47', digits: 8 },
+  { iso: 'PL', name: 'Polonia', dial: '48', digits: 9 },
+  { iso: 'RO', name: 'Rumanía', dial: '40', digits: 9 },
+  { iso: 'RS', name: 'Serbia', dial: '381', digits: 9 },
+  { iso: 'RU', name: 'Rusia', dial: '7', digits: 10 },
+  { iso: 'SE', name: 'Suecia', dial: '46', digits: 9 },
+  { iso: 'SI', name: 'Eslovenia', dial: '386', digits: 8 },
+  { iso: 'SK', name: 'Eslovaquia', dial: '421', digits: 9 },
+  { iso: 'SM', name: 'San Marino', dial: '378', digits: 10 },
+  { iso: 'UA', name: 'Ucrania', dial: '380', digits: 9 },
+  { iso: 'VA', name: 'Ciudad del Vaticano', dial: '379', digits: 10 },
+  { iso: 'XK', name: 'Kosovo', dial: '383', digits: 8 },
+  { iso: 'AF', name: 'Afganistán', dial: '93', digits: 9 },
+  { iso: 'AM', name: 'Armenia', dial: '374', digits: 8 },
+  { iso: 'AZ', name: 'Azerbaiyán', dial: '994', digits: 9 },
+  { iso: 'BH', name: 'Baréin', dial: '973', digits: 8 },
+  { iso: 'BD', name: 'Bangladés', dial: '880', digits: 10 },
+  { iso: 'BT', name: 'Bután', dial: '975', digits: 8 },
+  { iso: 'BN', name: 'Brunéi', dial: '673', digits: 7 },
+  { iso: 'KH', name: 'Camboya', dial: '855', digits: 9 },
+  { iso: 'CN', name: 'China', dial: '86', digits: 11 },
+  { iso: 'GE', name: 'Georgia', dial: '995', digits: 9 },
+  { iso: 'HK', name: 'Hong Kong', dial: '852', digits: 8 },
+  { iso: 'IN', name: 'India', dial: '91', digits: 10 },
+  { iso: 'ID', name: 'Indonesia', dial: '62', digits: 11 },
+  { iso: 'IR', name: 'Irán', dial: '98', digits: 10 },
+  { iso: 'IQ', name: 'Irak', dial: '964', digits: 10 },
+  { iso: 'IL', name: 'Israel', dial: '972', digits: 9 },
+  { iso: 'JP', name: 'Japón', dial: '81', digits: 10 },
+  { iso: 'JO', name: 'Jordania', dial: '962', digits: 9 },
+  { iso: 'KZ', name: 'Kazajistán', dial: '7', digits: 10 },
+  { iso: 'KW', name: 'Kuwait', dial: '965', digits: 8 },
+  { iso: 'KG', name: 'Kirguistán', dial: '996', digits: 9 },
+  { iso: 'LA', name: 'Laos', dial: '856', digits: 9 },
+  { iso: 'LB', name: 'Líbano', dial: '961', digits: 8 },
+  { iso: 'MO', name: 'Macao', dial: '853', digits: 8 },
+  { iso: 'MY', name: 'Malasia', dial: '60', digits: 9 },
+  { iso: 'MV', name: 'Maldivas', dial: '960', digits: 7 },
+  { iso: 'MN', name: 'Mongolia', dial: '976', digits: 8 },
+  { iso: 'MM', name: 'Myanmar', dial: '95', digits: 9 },
+  { iso: 'NP', name: 'Nepal', dial: '977', digits: 10 },
+  { iso: 'KP', name: 'Corea del Norte', dial: '850', digits: 10 },
+  { iso: 'OM', name: 'Omán', dial: '968', digits: 8 },
+  { iso: 'PK', name: 'Pakistán', dial: '92', digits: 10 },
+  { iso: 'PS', name: 'Palestina', dial: '970', digits: 9 },
+  { iso: 'PH', name: 'Filipinas', dial: '63', digits: 10 },
+  { iso: 'QA', name: 'Catar', dial: '974', digits: 8 },
+  { iso: 'SA', name: 'Arabia Saudita', dial: '966', digits: 9 },
+  { iso: 'SG', name: 'Singapur', dial: '65', digits: 8 },
+  { iso: 'KR', name: 'Corea del Sur', dial: '82', digits: 10 },
+  { iso: 'LK', name: 'Sri Lanka', dial: '94', digits: 9 },
+  { iso: 'SY', name: 'Siria', dial: '963', digits: 9 },
+  { iso: 'TW', name: 'Taiwán', dial: '886', digits: 9 },
+  { iso: 'TJ', name: 'Tayikistán', dial: '992', digits: 9 },
+  { iso: 'TH', name: 'Tailandia', dial: '66', digits: 9 },
+  { iso: 'TL', name: 'Timor Oriental', dial: '670', digits: 8 },
+  { iso: 'TR', name: 'Turquía', dial: '90', digits: 10 },
+  { iso: 'TM', name: 'Turkmenistán', dial: '993', digits: 8 },
+  { iso: 'AE', name: 'Emiratos Árabes Unidos', dial: '971', digits: 9 },
+  { iso: 'UZ', name: 'Uzbekistán', dial: '998', digits: 9 },
+  { iso: 'VN', name: 'Vietnam', dial: '84', digits: 9 },
+  { iso: 'YE', name: 'Yemen', dial: '967', digits: 9 },
+  { iso: 'DZ', name: 'Argelia', dial: '213', digits: 9 },
+  { iso: 'AO', name: 'Angola', dial: '244', digits: 9 },
+  { iso: 'BJ', name: 'Benín', dial: '229', digits: 8 },
+  { iso: 'BW', name: 'Botsuana', dial: '267', digits: 8 },
+  { iso: 'BF', name: 'Burkina Faso', dial: '226', digits: 8 },
+  { iso: 'BI', name: 'Burundi', dial: '257', digits: 8 },
+  { iso: 'CM', name: 'Camerún', dial: '237', digits: 9 },
+  { iso: 'CV', name: 'Cabo Verde', dial: '238', digits: 7 },
+  { iso: 'CF', name: 'República Centroafricana', dial: '236', digits: 8 },
+  { iso: 'TD', name: 'Chad', dial: '235', digits: 8 },
+  { iso: 'KM', name: 'Comoras', dial: '269', digits: 7 },
+  { iso: 'CG', name: 'República del Congo', dial: '242', digits: 9 },
+  { iso: 'CD', name: 'República Democrática del Congo', dial: '243', digits: 9 },
+  { iso: 'CI', name: 'Costa de Marfil', dial: '225', digits: 10 },
+  { iso: 'DJ', name: 'Yibuti', dial: '253', digits: 8 },
+  { iso: 'EG', name: 'Egipto', dial: '20', digits: 10 },
+  { iso: 'GQ', name: 'Guinea Ecuatorial', dial: '240', digits: 9 },
+  { iso: 'ER', name: 'Eritrea', dial: '291', digits: 7 },
+  { iso: 'SZ', name: 'Esuatini', dial: '268', digits: 8 },
+  { iso: 'ET', name: 'Etiopía', dial: '251', digits: 9 },
+  { iso: 'GA', name: 'Gabón', dial: '241', digits: 8 },
+  { iso: 'GM', name: 'Gambia', dial: '220', digits: 7 },
+  { iso: 'GH', name: 'Ghana', dial: '233', digits: 9 },
+  { iso: 'GN', name: 'Guinea', dial: '224', digits: 9 },
+  { iso: 'GW', name: 'Guinea-Bisáu', dial: '245', digits: 7 },
+  { iso: 'KE', name: 'Kenia', dial: '254', digits: 9 },
+  { iso: 'LS', name: 'Lesoto', dial: '266', digits: 8 },
+  { iso: 'LR', name: 'Liberia', dial: '231', digits: 8 },
+  { iso: 'LY', name: 'Libia', dial: '218', digits: 9 },
+  { iso: 'MG', name: 'Madagascar', dial: '261', digits: 9 },
+  { iso: 'MW', name: 'Malaui', dial: '265', digits: 9 },
+  { iso: 'ML', name: 'Malí', dial: '223', digits: 8 },
+  { iso: 'MR', name: 'Mauritania', dial: '222', digits: 8 },
+  { iso: 'MU', name: 'Mauricio', dial: '230', digits: 7 },
+  { iso: 'MA', name: 'Marruecos', dial: '212', digits: 9 },
+  { iso: 'MZ', name: 'Mozambique', dial: '258', digits: 9 },
+  { iso: 'NA', name: 'Namibia', dial: '264', digits: 9 },
+  { iso: 'NE', name: 'Níger', dial: '227', digits: 8 },
+  { iso: 'NG', name: 'Nigeria', dial: '234', digits: 10 },
+  { iso: 'RW', name: 'Ruanda', dial: '250', digits: 9 },
+  { iso: 'ST', name: 'Santo Tomé y Príncipe', dial: '239', digits: 7 },
+  { iso: 'SN', name: 'Senegal', dial: '221', digits: 9 },
+  { iso: 'SC', name: 'Seychelles', dial: '248', digits: 7 },
+  { iso: 'SL', name: 'Sierra Leona', dial: '232', digits: 8 },
+  { iso: 'SO', name: 'Somalia', dial: '252', digits: 8 },
+  { iso: 'ZA', name: 'Sudáfrica', dial: '27', digits: 9 },
+  { iso: 'SS', name: 'Sudán del Sur', dial: '211', digits: 9 },
+  { iso: 'SD', name: 'Sudán', dial: '249', digits: 9 },
+  { iso: 'TZ', name: 'Tanzania', dial: '255', digits: 9 },
+  { iso: 'TG', name: 'Togo', dial: '228', digits: 8 },
+  { iso: 'TN', name: 'Túnez', dial: '216', digits: 8 },
+  { iso: 'UG', name: 'Uganda', dial: '256', digits: 9 },
+  { iso: 'ZM', name: 'Zambia', dial: '260', digits: 9 },
+  { iso: 'ZW', name: 'Zimbabue', dial: '263', digits: 9 },
+  { iso: 'AU', name: 'Australia', dial: '61', digits: 9 },
+  { iso: 'FJ', name: 'Fiyi', dial: '679', digits: 7 },
+  { iso: 'KI', name: 'Kiribati', dial: '686', digits: 5 },
+  { iso: 'MH', name: 'Islas Marshall', dial: '692', digits: 7 },
+  { iso: 'FM', name: 'Micronesia', dial: '691', digits: 7 },
+  { iso: 'NR', name: 'Nauru', dial: '674', digits: 7 },
+  { iso: 'NZ', name: 'Nueva Zelanda', dial: '64', digits: 9 },
+  { iso: 'PW', name: 'Palaos', dial: '680', digits: 7 },
+  { iso: 'PG', name: 'Papúa Nueva Guinea', dial: '675', digits: 8 },
+  { iso: 'WS', name: 'Samoa', dial: '685', digits: 7 },
+  { iso: 'SB', name: 'Islas Salomón', dial: '677', digits: 7 },
+  { iso: 'TO', name: 'Tonga', dial: '676', digits: 7 },
+  { iso: 'TV', name: 'Tuvalu', dial: '688', digits: 5 },
+  { iso: 'VU', name: 'Vanuatu', dial: '678', digits: 7 },
+].sort((a, b) => a.name.localeCompare(b.name, 'es'));
+
+function makePhonePlaceholder(digits) {
+  const groups = [];
+  let remaining = digits;
+  while (remaining > 0) {
+    const take = Math.min(3, remaining);
+    groups.push('X'.repeat(take));
+    remaining -= take;
+  }
+  return groups.join(' ');
+}
+
+function setupPhoneField(selectEl, inputEl, errorEl, displayEl) {
+  const wrapperEl = selectEl.closest('.phone-country');
+
+  selectEl.innerHTML = COUNTRY_CODES.map(c =>
+    `<option value="${c.dial}" data-digits="${c.digits}" data-name="${c.name}" data-iso="${c.iso}"${c.iso === 'PA' ? ' selected' : ''}>${isoToFlag(c.iso)} ${c.name} (+${c.dial})</option>`
+  ).join('');
+
+  function applyCountry() {
+    const opt = selectEl.selectedOptions[0];
+    const digits = Number(opt.dataset.digits);
+    inputEl.placeholder = makePhonePlaceholder(digits);
+    inputEl.maxLength = digits;
+    inputEl.dataset.expectedDigits = String(digits);
+    inputEl.dataset.countryName = opt.dataset.name;
+    inputEl.value = '';
+    displayEl.textContent = `${isoToFlag(opt.dataset.iso)} +${opt.value}`;
+    clearError();
+  }
+
+  function clearError() {
+    errorEl.classList.remove('is-visible');
+    inputEl.classList.remove('has-error');
+    wrapperEl.classList.remove('has-error');
+  }
+
+  function showError(message) {
+    errorEl.textContent = message;
+    errorEl.classList.add('is-visible');
+    inputEl.classList.add('has-error');
+  }
+
+  selectEl.addEventListener('change', applyCountry);
+
+  inputEl.addEventListener('input', () => {
+    const digits = Number(inputEl.dataset.expectedDigits);
+    inputEl.value = inputEl.value.replace(/\D/g, '').slice(0, digits);
+    clearError();
+  });
+
+  inputEl.addEventListener('blur', () => {
+    if (inputEl.value.length === 0) return;
+    const digits = Number(inputEl.dataset.expectedDigits);
+    if (inputEl.value.length !== digits) {
+      showError(`Introduce un número de ${digits} dígitos válido para ${inputEl.dataset.countryName}.`);
+    } else {
+      clearError();
+    }
+  });
+
+  inputEl.checkPhoneValidity = () => {
+    if (inputEl.value.length === 0) {
+      showError('Este campo es obligatorio.');
+      return false;
+    }
+    const digits = Number(inputEl.dataset.expectedDigits);
+    if (inputEl.value.length !== digits) {
+      showError(`Introduce un número de ${digits} dígitos válido para ${inputEl.dataset.countryName}.`);
+      return false;
+    }
+    clearError();
+    return true;
+  };
+
+  applyCountry();
+}
+
+setupPhoneField(
+  document.getElementById('piernaPhoneCountry'),
+  document.getElementById('piernaPhone'),
+  document.getElementById('piernaPhoneError'),
+  document.getElementById('piernaPhoneDisplay')
+);
+
+const piernaForm = document.getElementById('piernaForm');
+const piernaError = document.getElementById('piernaError');
+const piernaSuccess = document.getElementById('piernaSuccess');
+const piernaDownloadLink = document.getElementById('piernaDownloadLink');
+
+piernaForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  piernaError.classList.remove('is-visible');
+  if (!document.getElementById('piernaPhone').checkPhoneValidity()) return;
+
+  const submitBtn = piernaForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  const originalHtml = submitBtn.innerHTML;
+  submitBtn.textContent = 'Enviando...';
+
+  const formData = new FormData(piernaForm);
+  const countryDial = document.getElementById('piernaPhoneCountry').value;
+  const phoneDigits = document.getElementById('piernaPhone').value;
+  formData.set('phone', `+${countryDial} ${phoneDigits}`);
+
+  fetch(piernaForm.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' },
+  })
+    .then((response) => {
+      if (response.ok) {
+        piernaDownloadLink.click();
+        piernaForm.style.display = 'none';
+        piernaSuccess.classList.add('is-visible');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(() => {
+      piernaError.classList.add('is-visible');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHtml;
+    });
+});
+</script>
+</body>
+</html>
