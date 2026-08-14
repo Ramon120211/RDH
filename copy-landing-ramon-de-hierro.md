@@ -326,7 +326,7 @@ Puedes seguir improvisando otro año más, o puedes tener un plan.
 
 - Instagram — [@ramondehierro](https://instagram.com/ramondehierro)
 - TikTok — [@ramondehierro](https://tiktok.com/@ramondehierro)
-- Email — ramonbanus28@gmail.com
+- Email — officialramondehierro@gmail.com
 
 **Legal:**
 © 2026 Ramon De Hierro. Todos los derechos reservados.
