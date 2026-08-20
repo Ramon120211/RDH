@@ -174,12 +174,11 @@ h1 .r{color:var(--rojo)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      Descargar programa
+      Enviarme el programa
     </button>
     <p class="form-msg form-msg--error" id="pechoError">Hubo un problema al enviar tus datos. Inténtalo de nuevo.</p>
-    <p class="form-msg form-msg--success" id="pechoSuccess">¡Listo! Tu descarga debería empezar automáticamente. Si no, <a href="programa-pecho.pdf" download="Programa-de-Pecho-Ramon-De-Hierro.pdf">haz clic aquí</a>.</p>
   </form>
-  <a id="pechoDownloadLink" href="programa-pecho.pdf" download="Programa-de-Pecho-Ramon-De-Hierro.pdf" style="display:none" aria-hidden="true"></a>
+  <p class="form-msg form-msg--success" id="pechoSuccess">¡Listo! Te acabo de enviar el programa a tu email. Si no lo ves en unos minutos, revisa spam o promociones.</p>
 
   <div class="micro">PDF · Gratis · Deja tus datos</div>
 
@@ -495,7 +494,6 @@ setupPhoneField(
 const pechoForm = document.getElementById('pechoForm');
 const pechoError = document.getElementById('pechoError');
 const pechoSuccess = document.getElementById('pechoSuccess');
-const pechoDownloadLink = document.getElementById('pechoDownloadLink');
 
 pechoForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -519,7 +517,6 @@ pechoForm.addEventListener('submit', (e) => {
   })
     .then((response) => {
       if (response.ok) {
-        pechoDownloadLink.click();
         pechoForm.style.display = 'none';
         pechoSuccess.classList.add('is-visible');
       } else {

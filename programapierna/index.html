@@ -174,12 +174,11 @@ h1 .r{color:var(--rojo)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      Descargar programa
+      Enviarme el programa
     </button>
     <p class="form-msg form-msg--error" id="piernaError">Hubo un problema al enviar tus datos. Inténtalo de nuevo.</p>
-    <p class="form-msg form-msg--success" id="piernaSuccess">¡Listo! Tu descarga debería empezar automáticamente. Si no, <a href="programa-piernas.pdf" download="Programa-de-Piernas-Ramon-De-Hierro.pdf">haz clic aquí</a>.</p>
   </form>
-  <a id="piernaDownloadLink" href="programa-piernas.pdf" download="Programa-de-Piernas-Ramon-De-Hierro.pdf" style="display:none" aria-hidden="true"></a>
+  <p class="form-msg form-msg--success" id="piernaSuccess">¡Listo! Te acabo de enviar el programa a tu email. Si no lo ves en unos minutos, revisa spam o promociones.</p>
 
   <div class="micro">PDF · Gratis · Deja tus datos</div>
 
@@ -496,7 +495,6 @@ setupPhoneField(
 const piernaForm = document.getElementById('piernaForm');
 const piernaError = document.getElementById('piernaError');
 const piernaSuccess = document.getElementById('piernaSuccess');
-const piernaDownloadLink = document.getElementById('piernaDownloadLink');
 
 piernaForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -520,7 +518,6 @@ piernaForm.addEventListener('submit', (e) => {
   })
     .then((response) => {
       if (response.ok) {
-        piernaDownloadLink.click();
         piernaForm.style.display = 'none';
         piernaSuccess.classList.add('is-visible');
       } else {
