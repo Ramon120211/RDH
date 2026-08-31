@@ -1281,6 +1281,11 @@ p { color: var(--gray); margin: 0 0 16px; }
       <form class="application-form" id="applicationForm" action="https://script.google.com/macros/s/AKfycbyEzP5_sS27dFqMfCuaHRAQxxfoIKozWWlWQLBLtgcll1wXbNpnsPJWzgtT4-gzAUgQ/exec" method="POST">
         <input type="hidden" name="_sheet" value="Solicitud Coaching">
         <input type="hidden" name="_subject" value="Nueva solicitud de coaching — RDH">
+        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+          <label for="companyWebsite">Sitio web (no llenar)</label>
+          <input type="text" id="companyWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" id="formLoadTime" name="form_load_time" value="">
         <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
         <p class="step-counter" id="stepCounter">Paso 1 De 11</p>
 
@@ -1780,6 +1785,7 @@ leadForm.addEventListener('submit', (e) => {
 
 // Multi-step application form
 const appForm = document.getElementById('applicationForm');
+document.getElementById('formLoadTime').value = Date.now();
 const steps = Array.from(appForm.querySelectorAll('.form-step'));
 const totalSteps = steps.length;
 let currentStep = 1;
