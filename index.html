@@ -1287,17 +1287,54 @@ p { color: var(--gray); margin: 0 0 16px; }
         </div>
         <input type="hidden" id="formLoadTime" name="form_load_time" value="">
         <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
-        <p class="step-counter" id="stepCounter">Paso 1 De 11</p>
+        <p class="step-counter" id="stepCounter">Paso 1 De 8</p>
 
         <div class="form-step is-active" data-step="1">
-          <label for="q1">¿Cómo Te Llamas?</label>
-          <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" required>
+          <label for="q5">¿Cuál Es Tu Objetivo Principal?</label>
+          <select id="q5" name="objetivo_principal" required>
+            <option value="" disabled selected>Selecciona Una Opción</option>
+            <option>Ganar Músculo</option>
+            <option>Perder Grasa</option>
+            <option>Recomposición</option>
+            <option>Fuerza</option>
+          </select>
         </div>
         <div class="form-step" data-step="2">
-          <label for="q2">¿Cuál Es Tu Email?</label>
-          <input type="email" id="q2" name="email" placeholder="tu@email.com" required>
+          <label for="qGenero">¿Cuál Es Tu Género?</label>
+          <select id="qGenero" name="genero" required>
+            <option value="" disabled selected>Selecciona Una Opción</option>
+            <option>Hombre</option>
+            <option>Mujer</option>
+          </select>
         </div>
         <div class="form-step" data-step="3">
+          <label for="qEdadRango">¿Cuál Es Tu Rango De Edad?</label>
+          <select id="qEdadRango" name="rango_edad" required>
+            <option value="" disabled selected>Selecciona Una Opción</option>
+            <option>18-24</option>
+            <option>25-32</option>
+            <option>33-40</option>
+            <option>40+</option>
+          </select>
+        </div>
+        <div class="form-step" data-step="4">
+          <label for="q6">¿Cuánto Tiempo Llevas Entrenando?</label>
+          <input type="text" id="q6" name="tiempo_entrenando" required>
+        </div>
+        <div class="form-step" data-step="5">
+          <label for="q9">¿Qué Has Intentado Antes Y Por Qué Crees Que No Funcionó?</label>
+          <textarea id="q9" name="intentos_previos" rows="3" required></textarea>
+        </div>
+        <div class="form-step" data-step="6">
+          <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3 Meses?</label>
+          <input type="range" id="q10" name="nivel_compromiso" min="1" max="10" value="7">
+          <output id="q10Output">7</output>
+        </div>
+        <div class="form-step" data-step="7">
+          <label for="q1">¿Cómo Te Llamas?</label>
+          <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" required>
+          <label for="q2">¿Cuál Es Tu Email?</label>
+          <input type="email" id="q2" name="email" placeholder="tu@email.com" required>
           <label for="q3">¿Cuál Es Tu WhatsApp?</label>
           <div class="phone-input-group">
             <div class="phone-country">
@@ -1309,46 +1346,7 @@ p { color: var(--gray); margin: 0 0 16px; }
           </div>
           <p class="field-error" id="q3Error"></p>
         </div>
-        <div class="form-step" data-step="4">
-          <label>Edad, Altura Y Peso Actual</label>
-          <div class="form-row">
-            <input type="number" name="edad" placeholder="Edad" required>
-            <input type="text" name="altura_cm" placeholder="Altura (cm)" required>
-            <input type="text" name="peso_kg" placeholder="Peso (kg)" required>
-          </div>
-        </div>
-        <div class="form-step" data-step="5">
-          <label for="q5">¿Cuál Es Tu Objetivo Principal?</label>
-          <select id="q5" name="objetivo_principal" required>
-            <option value="" disabled selected>Selecciona Una Opción</option>
-            <option>Ganar Músculo</option>
-            <option>Perder Grasa</option>
-            <option>Recomposición</option>
-            <option>Fuerza</option>
-          </select>
-        </div>
-        <div class="form-step" data-step="6">
-          <label for="q6">¿Cuánto Tiempo Llevas Entrenando?</label>
-          <input type="text" id="q6" name="tiempo_entrenando" required>
-        </div>
-        <div class="form-step" data-step="7">
-          <label for="q7">¿Cuántos Días A La Semana Puedes Entrenar De Verdad?</label>
-          <input type="number" id="q7" name="dias_por_semana" min="1" max="7" required>
-        </div>
         <div class="form-step" data-step="8">
-          <label for="q8">¿Tienes Alguna Lesión O Limitación?</label>
-          <textarea id="q8" name="lesiones" rows="3"></textarea>
-        </div>
-        <div class="form-step" data-step="9">
-          <label for="q9">¿Qué Has Intentado Antes Y Por Qué Crees Que No Funcionó?</label>
-          <textarea id="q9" name="intentos_previos" rows="3" required></textarea>
-        </div>
-        <div class="form-step" data-step="10">
-          <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3 Meses?</label>
-          <input type="range" id="q10" name="nivel_compromiso" min="1" max="10" value="7">
-          <output id="q10Output">7</output>
-        </div>
-        <div class="form-step" data-step="11">
           <label for="q11">¿Tienes Un Monto Que Puedas Invertir En Esto Ahorita?</label>
           <select id="q11" name="presupuesto" required>
             <option value="" disabled selected>Selecciona Una Opción</option>
