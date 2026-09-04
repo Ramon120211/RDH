@@ -1184,10 +1184,10 @@ p { color: var(--gray); margin: 0 0 16px; }
             <p class="field-error" id="leadWhatsappError"></p>
           </div>
           <button type="submit" class="btn btn--primary btn--full">Sí, Quiero La Mía Ahora</button>
-          <p class="micro-copy micro-copy--dark">Gratis, pero no para siempre. Te llevamos a WhatsApp para enviarte la guía al instante. Sin spam.</p>
-          <p class="form-success" id="leadSuccess">¡Listo! Te llevamos a WhatsApp para enviarte la guía.</p>
+          <p class="micro-copy micro-copy--dark">Gratis, pero no para siempre. Te enviamos la guía a tu email. Sin spam.</p>
           <p class="field-error" id="leadSubmitError">Hubo un problema al enviar tus datos. Inténtalo de nuevo o escríbeme directamente.</p>
         </form>
+        <p class="form-success" id="leadSuccess">¡Listo! Te acabo de enviar la guía a tu email. Si no la ves en unos minutos, revisa spam o promociones.</p>
       </div>
     </div>
   </section>
@@ -1741,11 +1741,8 @@ setupPhoneField(
 );
 
 // Lead magnet form
-const WHATSAPP_NUMBER = '50766309780';
-const WHATSAPP_MESSAGE = 'Hola, quiero la Enciclopedia Hipertrófica de Hierro';
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-
 const leadForm = document.getElementById('leadForm');
+const leadSuccess = document.getElementById('leadSuccess');
 leadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!document.getElementById('leadWhatsapp').checkPhoneValidity()) return;
@@ -1769,7 +1766,8 @@ leadForm.addEventListener('submit', (e) => {
   })
     .then((response) => {
       if (response.ok) {
-        window.location.href = WHATSAPP_URL;
+        leadForm.style.display = 'none';
+        leadSuccess.classList.add('is-visible');
       } else {
         throw new Error('Form submission failed');
       }
