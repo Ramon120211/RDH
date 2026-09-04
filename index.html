@@ -1288,7 +1288,7 @@ p { color: var(--gray); margin: 0 0 16px; }
         </div>
         <input type="hidden" id="formLoadTime" name="form_load_time" value="">
         <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
-        <p class="step-counter" id="stepCounter">Paso 1 De 8</p>
+        <p class="step-counter" id="stepCounter">Paso 1 De 9</p>
 
         <div class="form-step is-active" data-step="1">
           <label for="q5">¿Cuál Es Tu Objetivo Principal?</label>
@@ -1319,19 +1319,26 @@ p { color: var(--gray); margin: 0 0 16px; }
           </select>
         </div>
         <div class="form-step" data-step="4">
+          <label>Altura Y Peso Actual</label>
+          <div class="form-row">
+            <input type="text" name="altura_cm" placeholder="Altura (cm)" required>
+            <input type="text" name="peso_kg" placeholder="Peso (kg)" required>
+          </div>
+        </div>
+        <div class="form-step" data-step="5">
           <label for="q6">¿Cuánto Tiempo Llevas Entrenando?</label>
           <input type="text" id="q6" name="tiempo_entrenando" required>
         </div>
-        <div class="form-step" data-step="5">
+        <div class="form-step" data-step="6">
           <label for="q9">¿Qué Has Intentado Antes Y Por Qué Crees Que No Funcionó?</label>
           <textarea id="q9" name="intentos_previos" rows="3" required></textarea>
         </div>
-        <div class="form-step" data-step="6">
+        <div class="form-step" data-step="7">
           <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3 Meses?</label>
           <input type="range" id="q10" name="nivel_compromiso" min="1" max="10" value="7">
           <output id="q10Output">7</output>
         </div>
-        <div class="form-step" data-step="7">
+        <div class="form-step" data-step="8">
           <label for="q1">¿Cómo Te Llamas?</label>
           <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" required>
           <label for="q2">¿Cuál Es Tu Email?</label>
@@ -1347,7 +1354,7 @@ p { color: var(--gray); margin: 0 0 16px; }
           </div>
           <p class="field-error" id="q3Error"></p>
         </div>
-        <div class="form-step" data-step="8">
+        <div class="form-step" data-step="9">
           <label for="q11">¿Tienes Un Monto Que Puedas Invertir En Esto Ahorita?</label>
           <select id="q11" name="presupuesto" required>
             <option value="" disabled selected>Selecciona Una Opción</option>
