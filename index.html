@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js?render=6LePh6ktAAAAAMEvcQX19TdCfdpzYBwwbnSJ77EL"></script>
 <style>
 :root {
   --red: #D62828;
@@ -1838,6 +1839,7 @@ prevBtn.addEventListener('click', () => {
 });
 
 const CALENDLY_URL = 'https://calendly.com/ramondehierro/coaching-1-1-con-ramon';
+const RECAPTCHA_SITE_KEY = '6LePh6ktAAAAAMEvcQX19TdCfdpzYBwwbnSJ77EL';
 
 appForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -1854,23 +1856,38 @@ appForm.addEventListener('submit', (e) => {
   const whatsappDigits = document.getElementById('q3').value;
   formData.set('whatsapp', `+${countryDial} ${whatsappDigits}`);
 
-  fetch(appForm.action, {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' },
-  })
-    .then((response) => {
-      if (response.ok) {
-        window.location.href = CALENDLY_URL;
-      } else {
-        throw new Error('Form submission failed');
-      }
+  function submitApplication() {
+    fetch(appForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' },
     })
-    .catch(() => {
-      errorEl.classList.add('is-visible');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar Solicitud';
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = CALENDLY_URL;
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(() => {
+        errorEl.classList.add('is-visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar Solicitud';
+      });
+  }
+
+  if (typeof grecaptcha === 'undefined') {
+    submitApplication();
+  } else {
+    grecaptcha.ready(() => {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_coaching' })
+        .then((token) => {
+          formData.set('recaptcha_token', token);
+          submitApplication();
+        })
+        .catch(submitApplication);
     });
+  }
 });
 
 renderStep();
