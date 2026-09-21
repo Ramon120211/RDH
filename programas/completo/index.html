@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa Completo de Hierro | Ramon De Hierro</title>
+<meta name="description" content="El sistema que uso para entrenar — en 3 formatos, para que no tengas excusa. Tensión mecánica, doble progresión, y cero genérico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #D62828;
+  --red-dark: #B01F1F;
+  --black: #0A0A0A;
+  --black-soft: #141414;
+  --white: #FFFFFF;
+  --gray: #B3B3B3;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --container: 1200px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.container--narrow { max-width: 760px; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.1rem; }
+p { color: var(--gray); margin: 0 0 16px; }
+.text-center { text-align: center; }
+
+.eyebrow {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.lead { font-size: 1.1rem; color: var(--white); opacity: 0.9; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary { background: var(--red); color: var(--white); }
+.btn--primary:hover { background: var(--red-dark); }
+.btn--outline { background: transparent; border-color: var(--white); color: var(--white); }
+.btn--outline:hover { background: var(--white); color: var(--black); }
+.btn--full { width: 100%; }
+.btn--disabled { opacity: 0.55; cursor: not-allowed; }
+.btn--disabled:hover { transform: none; background: var(--red); }
+
+/* Header */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.top-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 16px;
+}
+.top-bar__brand { display: flex; align-items: center; text-decoration: none; }
+.logo__img { height: 34px; width: auto; display: block; }
+.top-bar__back {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-decoration: none;
+}
+.top-bar__back:hover { color: var(--white); }
+
+/* Hero */
+.hero {
+  padding: 56px 0 64px;
+  background: radial-gradient(circle at 80% 20%, rgba(214,40,40,0.12), transparent 60%), var(--black);
+}
+.hero__grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; }
+@media (max-width: 860px) { .hero__grid { grid-template-columns: 1fr; } }
+
+.hero__price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+.hero__price s { font-family: var(--font-body); font-size: 1.2rem; color: var(--gray); opacity: 0.8; }
+.hero__price b { font-family: var(--font-display); font-size: 2.4rem; color: var(--white); }
+
+.hero__cover {
+  aspect-ratio: 3 / 4;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 16px;
+  border: 1px solid rgba(214,40,40,0.35);
+  overflow: hidden;
+}
+.hero__cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+.hero__cover-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(10,10,10,0.75);
+  border: 1px solid rgba(214,40,40,0.4);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* Sections */
+.section { padding: 56px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* Para quien */
+.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 700px) { .fit-grid { grid-template-columns: 1fr; } }
+.fit-column__title { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1rem; margin-bottom: 16px; }
+.fit-column__title--yes { color: var(--red); }
+.fit-column__title--no { color: var(--gray); }
+.check-list { list-style: none; margin: 0; padding: 0; }
+.check-list li { position: relative; padding-left: 28px; color: var(--white); opacity: 0.85; margin-bottom: 12px; font-size: 0.95rem; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+.check-list--cross li::before { content: "✕"; color: var(--gray); }
+
+/* Que incluye */
+.includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 32px; }
+@media (max-width: 700px) { .includes-grid { grid-template-columns: 1fr; } }
+.includes-grid li { position: relative; padding-left: 28px; color: var(--white); opacity: 0.9; margin-bottom: 0; font-size: 0.95rem; list-style: none; }
+.includes-grid li::before { content: "＋"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+.includes-grid { list-style: none; margin: 0; padding: 0; }
+
+/* Splits table */
+.splits-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.splits-table th, .splits-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.92rem; }
+.splits-table th { font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); }
+.splits-table td { color: var(--white); opacity: 0.9; }
+.splits-table td:first-child { font-weight: 700; }
+.table-wrap { overflow-x: auto; }
+
+/* CTA band */
+.cta-band {
+  background: var(--black-soft);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+}
+.cta-band p { max-width: 560px; margin: 0 auto 24px; }
+
+.cross-sell {
+  text-align: center;
+  padding: 48px 0 72px;
+}
+.cross-sell p { max-width: 560px; margin: 0 auto 20px; }
+
+.footer-strip { border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0 60px; text-align: center; }
+.footer-strip p { font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="container top-bar__inner">
+    <a class="top-bar__brand" href="https://ramondehierro.com/"><img src="data:image/png;base64,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er7CwQdKU+lkyK9QfHJYWD6MeyA43uqgbL4MlnkjwUERM1Phiw31WnVnYbCKOCJnAiJf0pXLN4E7UbyDYaxc/QGqr/FhHZD5xptK6SLtg68GiapZ4RoLA6Crvb39fFTq/aiKKSwzAlxcnwyZgLZ6zWEpfPXVwj846vFfc8jcyl0GK2bvHjx48NOIyvUsuXwR4LNVh8JQnQ1xfUc38mzfAIbCXxJ6/oCflXsWBstamAY6QFpJr0JGf04rM+UTSeA9hJ4L2ReG6u7ImMkDffXVws+wgNTX55F499F6B1IGq47OjIGxrKOj4ywkcX0mr6MUTR+V7H8L2QvtwZeYi3iZ7ssQptk5fP7jVK4uCdOE6jyv1tbWWVDKrynIpUuAz1VNh3BGxXcCn0k3e6e5WWcQTnMpobLKO2wp12tRyvn5yO4iKN0PMsaHcunsQ4AvK99CgZH63z4h/g+ivkbaSO40vkV3/EiAD7cYSq26axks11NXnlnY+QrtMHAW4VWan6ISN0N8PkBXaE4NFJ7rUw9DyPd+8M7qsu9R5M8+63LphOtXrh67gKrMHE8e/KLJcMcluAftzfc/Q12thrgLqVaHpkzm+V9IluQl1GS5+U11G9Rf5zeLptLOp9Nvh/wbZBd02m9BZmRorAj/cQjb2aW7A8oecqkwI13zke9NjvN+Cfqub0gnZhITIfMhjbi1SPw7yGYNFSZniVEf/gPMryGrIS7cSiihvsMhr7hQmFMdHSjXO5DZkEshB0FG5qx5K8VhuSD3Q1y4h6BkyzzWM0mZUJdNIXe6AAMdr0H4ByWRLtYlHxSxMx0M2RES/PyJSc9pMx2P+/jhAbNFeGaDZ5XZOFtyOlw6Bz5fQ6X2h2wNWRcSvMtBHsFjHPY6+puwN7B/MxjNYSh0jsbmaMieEL4czct3c3lCnWTJLWfJ/N4TbzPzmI7boG76MR7TV4fx2KQLvn5k/BBc0WXS8jioi/t0fLaIwnwZl7raISwX14K4bvM2hGtSPJO+yeMi9Am0xfoo6yTIoZCtIKbOhiW8erlWc2PYu5D/hlyJ+vJytzSuhw1nxWSzDYRLJKavmL4d5ITgijOcuGb1IOQysGG/iHQmUWQkBWZHAB2CL0NzwLAjsAOYwWI6BY95qz/sup/xw9rYdCQE93E2f0aq1mXiMn/us3ymbDxm+Sid6IjcFt6hLXjS4JoN6xnGlXU0PAwfbpeBAduotA5seKIeASGX7tWrV/fhM2TIENbdMOG+CV8KNlmtUbIcciIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiKQOYH/B8vsq27RNr4+AAAAAElFTkSuQmCC" alt="Ramon De Hierro" class="logo__img"></a>
+    <a class="top-bar__back" href="../">← Todos los programas</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <p class="eyebrow">PROGRAMA COMPLETO DE HIERRO</p>
+        <h1>El Sistema Que Uso Para Entrenar — En 3 Formatos, Para Que No Tengas Excusa</h1>
+        <p class="lead">Un solo programa. Tres splits. Eliges el que se ajuste a tus días disponibles, no al revés.</p>
+
+        <div class="hero__price">
+          <s>$78</s>
+          <b>$37</b>
+        </div>
+
+        <a href="https://cuanto.app/ramon/w/13d6dc" target="_blank" rel="noopener" class="btn btn--primary">Comprar Ahora</a>
+        <p style="font-size:0.82rem;margin-top:12px;">Pago seguro con Cuanto. Te llega el PDF por correo o WhatsApp apenas se confirme el pago.</p>
+      </div>
+      <div class="hero__cover">
+        <span class="hero__cover-badge">Producto Ancla</span>
+        <img class="hero__cover-img" src="assets/cover-completo-hero.jpg" alt="Programa Completo de Hierro">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="eyebrow">LA IDEA</p>
+      <h2>No Es Una Rutina. Es El Sistema Completo.</h2>
+      <p>La mayoría de los programas gratis que encuentras por ahí te tiran una rutina y ya. Este te da un sistema — el mismo que uso con mis clientes de pago.</p>
+      <p>Tensión mecánica como motor principal, estrés metabólico como motor secundario, y sobrecarga progresiva sin excusas, siempre. Eso es lo que hay detrás, no una lista de ejercicios inventada al azar.</p>
+      <p>Acá tienes tres versiones del mismo programa — 5, 4 y 3 días — para que elijas según los días que de verdad tienes esta temporada, no según lo que te gustaría tener. Y ojo: ninguna es "la fácil" y otra "la en serio". Las tres están hechas para dar resultado real.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">¿Es Para Ti?</h2>
+      <div class="fit-grid">
+        <div>
+          <h3 class="fit-column__title fit-column__title--yes">Esto Es Para Ti Si:</h3>
+          <ul class="check-list">
+            <li>Ya sabes moverte en el gimnasio (no es tu primera rutina)</li>
+            <li>Quieres ganar tamaño y fuerza moderada, sea que estés en superávit o déficit</li>
+            <li>Prefieres entrenar menos pero con intensidad real, en vez de acumular volumen sin sentido</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="fit-column__title fit-column__title--no">Esto NO Es Para Ti Si:</h3>
+          <ul class="check-list check-list--cross">
+            <li>Estás embarazada, enferma, o tienes alguna condición que te impide levantar cargas pesadas semana a semana — habla con tu médico primero</li>
+            <li>Nunca entrenaste con pesas — arranca con el Programa para Principiantes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="text-center">Qué Incluye</h2>
+      <ul class="includes-grid">
+        <li>Los 3 splits completos (5, 4 y 3 días), con series, reps y notas de ejecución</li>
+        <li>Glosario AF / RIR / Top Set / Back-Off, para que sepas exactamente qué hacer</li>
+        <li>Protocolo de calentamiento progresivo antes de cada ejercicio principal</li>
+        <li>El método de doble progresión, para que sepas cuándo subir peso</li>
+        <li>Qué hacer si te estancas — en orden, paso a paso</li>
+        <li>Protocolo de deload (activo y pasivo), y cuándo tomarlo</li>
+        <li>Guía de cardio LISS post-entreno</li>
+        <li>Las reglas que no se negocian — para que no adivines</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="text-center">Elige Tu Split</h2>
+      <p class="text-center">No hay una versión "mejor". Hay una que se ajusta a tu semana real. Los tres corren el mismo motor — la diferencia es solo cuántas veces por semana tocas cada músculo.</p>
+      <div class="table-wrap">
+        <table class="splits-table">
+          <thead>
+            <tr><th>Split</th><th>Días/Semana</th><th>Ideal Si...</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5 Días — PPL + Upper/Lower</td><td>5</td><td>Tienes tiempo y quieres la frecuencia más alta por grupo muscular</td></tr>
+            <tr><td>4 Días — Upper/Lower</td><td>4</td><td>Quieres el balance entre resultado y tiempo de vida</td></tr>
+            <tr><td>3 Días — Upper/Lower/Full Body</td><td>3</td><td>Tu semana está apretada y necesitas máxima eficiencia por sesión</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:20px;font-size:0.9rem;">Una aclaración honesta sobre el de 3 días: con tres sesiones por semana no cabe el mismo volumen total que con cuatro o cinco — es aritmética, no opinión. Eso no lo hace un mal programa: con progresión real, tres días bien hechos construyen músculo de sobra. Pero si tienes cuatro días disponibles, usa el de cuatro. Es el más completo de los tres.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <p class="eyebrow" style="justify-content:center;display:flex;">PROGRAMA COMPLETO DE HIERRO</p>
+        <h2>Elige Tu Split. Empieza Esta Semana.</h2>
+        <p>Deja que la doble progresión haga el trabajo. Este es el mismo sistema que corro yo y que uso con mis clientes de coaching.</p>
+        <div class="hero__price" style="justify-content:center;">
+          <s>$78</s>
+          <b>$37</b>
+        </div>
+        <a href="https://cuanto.app/ramon/w/13d6dc" target="_blank" rel="noopener" class="btn btn--primary">Comprar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cross-sell">
+    <div class="container">
+      <p class="eyebrow" style="justify-content:center;display:flex;">¿YA LO CORRISTE?</p>
+      <h2>¿Necesitas Más Estructura?</h2>
+      <p>Este programa te da el sistema. El coaching 1:1 te da el ajuste — alguien revisando tu semana, moviendo lo que no está funcionando, y sin dejarte desaparecer cuando el motivo baja.</p>
+      <a href="https://ramondehierro.com/#solicitar" class="btn btn--outline">Aplica Para Coaching 1:1</a>
+    </div>
+  </section>
+
+  <div class="footer-strip">
+    <div class="container">
+      <p><a href="../" style="color:var(--gray);">← Ver todos los programas</a></p>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
