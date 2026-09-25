@@ -1418,6 +1418,114 @@
         text-align: center;
       }
     }
+
+    /* PROGRAMAS TEASER */
+    .programs-teaser .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .programs-teaser__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 32px 0 28px;
+    }
+
+    .programs-teaser__card {
+      display: flex;
+      flex-direction: column;
+      background: var(--black-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .programs-teaser__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .programs-teaser__cover {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .programs-teaser__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    .programs-teaser__body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .programs-teaser__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .programs-teaser__hook {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .programs-teaser__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .programs-teaser__price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--white);
+    }
+
+    .programs-teaser__price s {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gray);
+      opacity: 0.8;
+      margin-right: 6px;
+    }
+
+    .programs-teaser__cta {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--red);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .programs-teaser__all {
+      text-align: center;
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .programs-teaser__grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1737,6 +1845,62 @@
           <p class="form-success" id="leadSuccess">¡Listo! Te acabo de enviar la guía a tu email. Si no la ves en unos
             minutos, revisa spam o promociones.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMAS -->
+    <section class="section programs-teaser" id="programas">
+      <div class="container">
+        <p class="eyebrow text-center">PROGRAMAS</p>
+        <h2 class="text-center">¿Aún No Estás Listo Para Coaching 1:1?</h2>
+        <p class="lead text-center">Empieza con uno de mis programas — el mismo sistema que uso con mis clientes, en
+          formato de autoservicio.</p>
+        <div class="programs-teaser__grid">
+          <a class="programs-teaser__card" href="/programas/completo/">
+            <div class="programs-teaser__cover">
+              <img src="programas/completo/assets/cover-completo-card.jpg" alt="Programa Completo de Hierro">
+            </div>
+            <div class="programs-teaser__body">
+              <div class="programs-teaser__title">Programa Completo de Hierro</div>
+              <p class="programs-teaser__hook">El sistema que uso para entrenar — en 3 formatos, para que no tengas
+                excusa.</p>
+              <div class="programs-teaser__footer">
+                <span class="programs-teaser__price"><s>$78</s>$37</span>
+                <span class="programs-teaser__cta">Ver Más →</span>
+              </div>
+            </div>
+          </a>
+          <a class="programs-teaser__card" href="/programas/12-semanas/">
+            <div class="programs-teaser__cover">
+              <img src="programas/12-semanas/assets/cover-12-semanas-card.jpg" alt="12 Semanas de Hierro">
+            </div>
+            <div class="programs-teaser__body">
+              <div class="programs-teaser__title">12 Semanas de Hierro</div>
+              <p class="programs-teaser__hook">El Programa Completo, pero con un plan de verdad semana a semana —
+                tres fases.</p>
+              <div class="programs-teaser__footer">
+                <span class="programs-teaser__price"><s>$129</s>$47</span>
+                <span class="programs-teaser__cta">Ver Más →</span>
+              </div>
+            </div>
+          </a>
+          <a class="programs-teaser__card" href="/programas/principiantes/">
+            <div class="programs-teaser__cover">
+              <img src="programas/principiantes/assets/cover-principiantes-card.jpg" alt="Programa para Principiantes">
+            </div>
+            <div class="programs-teaser__body">
+              <div class="programs-teaser__title">Programa para Principiantes</div>
+              <p class="programs-teaser__hook">8 semanas para aprender a entrenar de verdad — en el gimnasio o en tu
+                casa.</p>
+              <div class="programs-teaser__footer">
+                <span class="programs-teaser__price"><s>$60</s>$27</span>
+                <span class="programs-teaser__cta">Ver Más →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <p class="programs-teaser__all"><a href="/programas/" class="btn btn--outline">Ver Todos Los Programas</a>
+        </p>
       </div>
     </section>
 
