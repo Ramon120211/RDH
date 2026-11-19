@@ -1824,7 +1824,7 @@
             <input type="hidden" name="_subject" value="Nueva descarga de guía — RDH">
             <div class="form-field">
               <label for="leadName">Nombre</label>
-              <input type="text" id="leadName" name="name" placeholder="Tu nombre completo" required>
+              <input type="text" id="leadName" name="name" placeholder="Tu nombre completo" maxlength="80" required>
             </div>
             <div class="form-field">
               <label for="leadEmail">Email</label>
@@ -2062,17 +2062,17 @@
           <div class="form-step" data-step="4">
             <label>Altura Y Peso Actual</label>
             <div class="form-row">
-              <input type="text" name="altura_cm" placeholder="Altura (cm)" required>
-              <input type="text" name="peso_kg" placeholder="Peso (kg)" required>
+              <input type="text" name="altura_cm" placeholder="Altura (cm)" maxlength="5" required>
+              <input type="text" name="peso_kg" placeholder="Peso (kg)" maxlength="5" required>
             </div>
           </div>
           <div class="form-step" data-step="5">
             <label for="q6">¿Cuánto Tiempo Llevas Entrenando?</label>
-            <input type="text" id="q6" name="tiempo_entrenando" required>
+            <input type="text" id="q6" name="tiempo_entrenando" maxlength="60" required>
           </div>
           <div class="form-step" data-step="6">
             <label for="q9">¿Qué Has Intentado Antes Y Por Qué Crees Que No Funcionó?</label>
-            <textarea id="q9" name="intentos_previos" rows="3" required></textarea>
+            <textarea id="q9" name="intentos_previos" rows="3" maxlength="500" required></textarea>
           </div>
           <div class="form-step" data-step="7">
             <label for="q10">Del 1 Al 10, ¿Cuánto De Comprometido Estás Con Cambiar Esto En Los Próximos 3
@@ -2082,7 +2082,7 @@
           </div>
           <div class="form-step" data-step="8">
             <label for="q1">¿Cómo Te Llamas?</label>
-            <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" required>
+            <input type="text" id="q1" name="nombre" placeholder="Tu nombre completo" maxlength="80" required>
             <label for="q2">¿Cuál Es Tu Email?</label>
             <input type="email" id="q2" name="email" placeholder="tu@email.com" required>
             <label for="q3">¿Cuál Es Tu WhatsApp?</label>
